@@ -1,4 +1,3 @@
-/backEnd/config
-/backEnd/node_modules
-/node_modules
-
+backEnd/config
+node_modules
+.vscode
