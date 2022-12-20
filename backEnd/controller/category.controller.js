@@ -2,30 +2,36 @@ const db = require("../model/index");
 const Category = db.category;
 
 exports.create = (req, res) => {
+  console.log(1);
   const category = {
     category_name: req.body.category_name,
     description: req.body.description,
   };
+  console.log(2);
   db.categories
     .create(category)
     .then((category) => {
       console.log(
         `category name: [ ${category.category_name}] got inserted in DB`
       );
+      console.log(3);
       res.status(201).send(category);
     })
     .catch((err) => {
       console.log(
         `Issue in inserting category name: [ ${category.category_name}]. Error message : ${err.message}`
       );
+      console.log(4);
       res.status(500).send({
         message: "Some Internal error while storing the category!",
       });
     });
+  console.log(25);
 };
 
 exports.findAll = (req, res) => {
-  db.categories.findAll()
+  db.categories
+    .findAll()
     .then((categories) => {
       res.status(200).send(categories);
     })
@@ -37,9 +43,13 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  const categoryId = req.params.id;
-
-  Category.findByPk(categoryId)
+  const category_name = req.params.category_name;
+  db.categories
+    .findOne({
+      where: {
+        category_name: category_name,
+      },
+    })
     .then((category) => {
       res.status(200).send(category);
     })
@@ -52,18 +62,24 @@ exports.findOne = (req, res) => {
 };
 
 exports.update = (req, res) => {
+  const category_name = req.params.category_name;
   const category = {
-    name: req.body.name,
+    category_name: req.body.category_name,
     description: req.body.description,
   };
-  const categoryId = req.params.id;
 
-  Category.update(category, {
-    returning: true,
-    where: { id: categoryId },
-  })
-    .then((updatedCategory) => {
-      Category.findByPk(categoryId)
+  db.categories
+    .update(category, {
+      returning: true,
+      where: { category_name: category_name },
+    })
+    .then((result) => {
+      db.categories
+        .findOne({
+          where: {
+            category_name: req.body.category_name,
+          },
+        })
         .then((category) => {
           res.status(200).send(category);
         })
@@ -83,11 +99,11 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  const categoryId = req.params.id;
+  const category_name = req.params.category_name;
 
   Category.destroy({
     where: {
-      id: categoryId,
+      category_name: category_name,
     },
   })
     .then((result) => {

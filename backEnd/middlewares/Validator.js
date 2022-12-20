@@ -130,7 +130,28 @@ exports.admin_Find_duplicate = async (req, res, next) => {
   }
 };
 
-exports.validateCategoryRequest = (req, res, next) => {
+exports.validateCategoryRequest = async (req,res,next)=>{
+  console.log(1);
+  const findCategory = req.params.category_name;
+  console.log(2);
+  const result = await db.categories.findOne({
+    where: {
+      category_name: findCategory,
+    },
+  });
+  console.log(4);
+  if (!result) {
+     console.log(5);
+     res.status(400).send({
+       message: `category passed is not available : ${findCategory}`,
+      });
+      return;
+    }
+    console.log(6);
+   next();
+}
+
+exports.validateCategoryBody = (req, res, next) => {
   if (!req.body.category_name) {
     res.status(400).send({
       message: "Name of the category can't be empty !",

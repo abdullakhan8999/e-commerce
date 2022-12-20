@@ -45,7 +45,7 @@ const insertCategories = async () => {
         "Appliances are divided into three types: small appliances, major appliances (also known as white goods) and consumer electronics (brown goods).",
     },
     {
-      category_name: "Apps & Games",
+      category_name: "Apps and Games",
       description:
         "The various forms of leisure entertainment that involve table games, video games, gambling, and many other such activities.",
     },
@@ -65,24 +65,24 @@ const insertCategories = async () => {
         "All about the book's content, examples being science fiction, crime, history, memoir, and so on.",
     },
     {
-      category_name: "Car & Motorbike",
+      category_name: "Car and Motorbike",
       description:
-        "All about Car & Motorbike products example like it's Accessories and spare-parts.",
+        "All about Car and Motorbike products example like it's Accessories and spare-parts.",
     },
     {
-      category_name: "Clothing & Accessories",
+      category_name: "Clothing and Accessories",
       description:
         "Most modern formal and semi-formal clothing is in this category (for example, dress shirts and suits) and it's Accessories.",
     },
     {
-      category_name: "Computers & Accessories",
+      category_name: "Computers and Accessories",
       description:
-        "All about Computers & Accessories products example like Display, CPU, GPU, RAM, etc.",
+        "All about Computers and Accessories products example like Display, CPU, GPU, RAM, etc.",
     },
     {
-      category_name: "Health & Personal Care",
+      category_name: "Health and Personal Care",
       description:
-        "Health & Personal Care includes products as diverse as, diagnosis, treatment, amelioration or cure of disease, illness, cleansing pads, colognes, cotton swabs, cotton pads, deodorant, eye liner, facial tissue, hair clippers etc",
+        "Health and Personal Care includes products as diverse as, diagnosis, treatment, amelioration or cure of disease, illness, cleansing pads, colognes, cotton swabs, cotton pads, deodorant, eye liner, facial tissue, hair clippers etc",
     },
   ];
   await db.categories
