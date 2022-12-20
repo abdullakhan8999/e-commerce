@@ -3,12 +3,9 @@ const Product = db.products;
 const Category = db.categories;
 const Op = db.sequelize.Op;
 
-/**
- * Create and save a new Product
- */
 exports.create = (req, res) => {
   const product = {
-    name: req.body.name,
+    product_name: req.body.product_name,
     description: req.body.description,
     cost: req.body.cost,
     categoryId: req.body.categoryId,
@@ -19,12 +16,14 @@ exports.create = (req, res) => {
    */
   Product.create(product)
     .then((product) => {
-      console.log(`product name: [ ${product.name}] got inserted in DB`);
+      console.log(
+        `product name: [ ${product.product_name}] got inserted in DB`
+      );
       res.status(201).send(product);
     })
     .catch((err) => {
       console.log(
-        `Issue in inserting product name: [ ${product.name}]. Error message : ${err.message}`
+        `Issue in inserting product name: [ ${product.product_name}]. Error message : ${err.message}`
       );
       res.status(500).send({
         message: "Some Internal error while storing the product!",
@@ -32,22 +31,29 @@ exports.create = (req, res) => {
     });
 };
 
-/**
- * Get a list of all the products
- */
 exports.findAll = (req, res) => {
   //Supporting the query param
-  let productName = req.query.name;
+  let productName = req.query.product_name;
   let minCost = req.query.minCost;
   let maxCost = req.query.maxCost;
   let promise;
-  if (productName) {
+  if (productName && !minCost && !maxCost) {
     promise = Product.findAll({
       where: {
-        name: productName,
+        product_name: productName,
       },
     });
-  } else if (minCost && maxCost) {
+  } else if (productName && minCost && maxCost) {
+    promise = Product.findAll({
+      where: {
+        product_name: productName,
+        cost: {
+          [Op.gte]: minCost,
+          [Op.lte]: maxCost,
+        },
+      },
+    });
+  } else if (!productName && minCost && maxCost) {
     promise = Product.findAll({
       where: {
         cost: {
@@ -56,7 +62,7 @@ exports.findAll = (req, res) => {
         },
       },
     });
-  } else if (minCost) {
+  } else if (!productName && minCost && !maxCost) {
     promise = Product.findAll({
       where: {
         cost: {
@@ -64,9 +70,27 @@ exports.findAll = (req, res) => {
         },
       },
     });
-  } else if (maxCost) {
+  } else if (!productName && !minCost && maxCost) {
     promise = Product.findAll({
       where: {
+        cost: {
+          [Op.lte]: maxCost,
+        },
+      },
+    });
+  } else if (productName && minCost && !maxCost) {
+    promise = Product.findAll({
+      where: {
+        product_name: productName,
+        cost: {
+          [Op.lte]: minCost,
+        },
+      },
+    });
+  } else if (productName && !minCost && maxCost) {
+    promise = Product.findAll({
+      where: {
+        product_name: productName,
         cost: {
           [Op.lte]: maxCost,
         },
@@ -86,13 +110,14 @@ exports.findAll = (req, res) => {
     });
 };
 
-/**
- * Get a product based on the product id
- */
 exports.findOne = (req, res) => {
-  const productId = req.params.id;
+  const product_name = req.params.product_name;
 
-  Product.findByPk(productId)
+  Product.findAll({
+    where: {
+      product_name: product_name,
+    },
+  })
     .then((product) => {
       res.status(200).send(product);
     })
@@ -104,53 +129,50 @@ exports.findOne = (req, res) => {
     });
 };
 
-/**
- * Update an existing product
- */
 exports.update = (req, res) => {
-  /**
-   * Creation of the Product object to be stored in the DB
-   */
   const product = {
-    name: req.body.name,
+    product_name: req.body.product_name,
+    cost: req.body.cost,
     description: req.body.description,
     categoryId: req.body.categoryId,
   };
-  const productId = req.params.id;
+  const product_name = req.params.product_name;
 
   Product.update(product, {
     returning: true,
-    where: { id: productId },
+    where: { product_name: product_name },
   })
     .then((updatedProduct) => {
-      Product.findByPk(productId)
+      Product.findAll({
+        where: {
+          product_name: req.body.product_name,
+        },
+      })
         .then((product) => {
           res.status(200).send(product);
         })
         .catch((err) => {
           res.status(500).send({
             message:
-              "Some Internal error while fetching the product based on the id",
+              "Some Internal error while fetching the product based on the name.",
           });
         });
     })
     .catch((err) => {
       res.status(500).send({
         message:
-          "Some Internal error while fetching the product based on the id",
+          "Some Internal error while fetching the product based on the name.",
       });
     });
 };
 
-/**
- * Delete an existing product based on the product name
- */
+
 exports.delete = (req, res) => {
-  const productId = req.params.id;
+  const product_name = req.params.product_name;
 
   Product.destroy({
     where: {
-      id: productId,
+      product_name: product_name,
     },
   })
     .then((result) => {
@@ -172,7 +194,7 @@ exports.delete = (req, res) => {
 exports.getProductsUnderCategory = (req, res) => {
   const categoryId = parseInt(req.params.categoryId);
 
-  Product.findAll({
+  db.products.findAll({
     where: {
       categoryId: categoryId,
     },

@@ -140,8 +140,24 @@ exports.validateCategoryRequest = (req, res, next) => {
   next();
 };
 
-exports.validateProductRequest = (req, res, next) => {
-  if (!req.body.name) {
+exports.validateProductRequest = async (req, res, next) => {
+  const findProduct = req.params.product_name;
+  const result = await db.products.findOne({
+    where: {
+      product_name: findProduct,
+    },
+  });
+  if (!result) {
+    res.status(400).send({
+      message: `Product passed is not available : ${findProduct}`,
+    });
+    return;
+  }
+  next();
+};
+
+exports.validateProductBody = (req, res, next) => {
+  if (!req.body.product_name) {
     res.status(400).send({
       message: "Name of the product can't be empty !",
     });
@@ -150,7 +166,7 @@ exports.validateProductRequest = (req, res, next) => {
 
   if (req.body.categoryId) {
     //Check if the category exists, if not return the proper error message
-    Category.findByPk(req.body.categoryId)
+    db.categories.findByPk(req.body.categoryId)
       .then((category) => {
         if (!category) {
           res.status(400).send({
@@ -178,7 +194,7 @@ exports.validateCategoryPassedInReqParam = (req, res, next) => {
   const categoryId = parseInt(req.params.categoryId);
   if (categoryId) {
     //Check if the category exists, if not return the proper error message
-    Category.findByPk(categoryId)
+    db.categories.findByPk(categoryId)
       .then((category) => {
         if (!category) {
           res.status(400).send({

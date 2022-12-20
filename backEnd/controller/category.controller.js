@@ -1,37 +1,31 @@
 const db = require("../model/index");
 const Category = db.category;
+
 exports.create = (req, res) => {
   const category = {
-    name: req.body.name,
+    category_name: req.body.category_name,
     description: req.body.description,
   };
-  Category.create(category)
+  db.categories
+    .create(category)
     .then((category) => {
-      console.log(`category name: [ ${category.name}] got inserted in DB`);
+      console.log(
+        `category name: [ ${category.category_name}] got inserted in DB`
+      );
       res.status(201).send(category);
     })
     .catch((err) => {
       console.log(
-        `Issue in inserting category name: [ ${category.name}]. Error message : ${err.message}`
+        `Issue in inserting category name: [ ${category.category_name}]. Error message : ${err.message}`
       );
       res.status(500).send({
         message: "Some Internal error while storing the category!",
       });
     });
 };
+
 exports.findAll = (req, res) => {
-  let categoryName = req.query.name;
-  let promise;
-  if (categoryName) {
-    promise = Category.findAll({
-      where: {
-        name: categoryName,
-      },
-    });
-  } else {
-    promise = Category.findAll();
-  }
-  promise
+  db.categories.findAll()
     .then((categories) => {
       res.status(200).send(categories);
     })
@@ -88,9 +82,6 @@ exports.update = (req, res) => {
     });
 };
 
-/**
- * Delete an existing category based on the category name
- */
 exports.delete = (req, res) => {
   const categoryId = req.params.id;
 

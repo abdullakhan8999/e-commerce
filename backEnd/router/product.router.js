@@ -7,7 +7,7 @@ module.exports = function (app) {
   app.post(
     "/ecomm/api/v1/products",
     [
-      requestValidator.validateProductRequest,
+      requestValidator.validateProductBody,
       authJwt.verifyToken,
       authJwt.isAdmin,
     ],
@@ -15,16 +15,25 @@ module.exports = function (app) {
   );
 
   //Route for the GET request to fetch all the products
-  app.get("/ecomm/api/v1/products", productController.findAll);
+  app.get(
+    "/ecomm/api/v1/products",
+    [authJwt.verifyToken],
+    productController.findAll
+  );
 
   //Route for the GET request to fetch a product based on the id
-  app.get("/ecomm/api/v1/products/:id", productController.findOne);
+  app.get(
+    "/ecomm/api/v1/products/:product_name",
+    [authJwt.verifyToken, requestValidator.validateProductRequest],
+    productController.findOne
+  );
 
   //Route for the PUT request to update a product based on the id
   app.put(
-    "/ecomm/api/v1/products/:id",
+    "/ecomm/api/v1/products/:product_name",
     [
       requestValidator.validateProductRequest,
+      requestValidator.validateProductBody,
       authJwt.verifyToken,
       authJwt.isAdmin,
     ],
@@ -33,19 +42,16 @@ module.exports = function (app) {
 
   //Route for the DELETE request to delete a product based on the id
   app.delete(
-    "/ecomm/api/v1/products/:id",
-    [authJwt.verifyToken, authJwt.isAdmin],
+    "/ecomm/api/v1/products/:product_name",
+    [
+      requestValidator.validateProductRequest,
+      authJwt.verifyToken,
+      authJwt.isAdmin,
+    ],
     productController.delete
   );
 
   //Route for getting the list of products with cost greater than the
-  app.get(
-    "/ecomm/api/v1/categories/:categoryId/products",
-    [requestValidator.validateCategoryPassedInReqParam],
-    productController.getProductsUnderCategory
-  );
-
-  //Route for getting the list of products under a category
   app.get(
     "/ecomm/api/v1/categories/:categoryId/products",
     [requestValidator.validateCategoryPassedInReqParam],

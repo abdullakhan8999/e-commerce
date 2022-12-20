@@ -17,7 +17,7 @@ module.exports = (sequelize, db_Connection) => {
         notNull: false,
       },
       cost: {
-        type: sequelize.STRING,
+        type: sequelize.INTEGER,
         notNull: false,
       },
     },
