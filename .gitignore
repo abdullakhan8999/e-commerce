@@ -1,3 +1,3 @@
-backEnd/config
+backEnd/config/db.config.js
 node_modules
 .vscode
