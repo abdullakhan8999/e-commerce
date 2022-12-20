@@ -131,7 +131,7 @@ exports.admin_Find_duplicate = async (req, res, next) => {
 };
 
 exports.validateCategoryRequest = (req, res, next) => {
-  if (!req.body.name) {
+  if (!req.body.category_name) {
     res.status(400).send({
       message: "Name of the category can't be empty !",
     });

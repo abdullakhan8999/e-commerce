@@ -5,8 +5,8 @@ App.use(bodyparser.urlencoded({ extended: true }));
 App.use(bodyparser.json());
 // const jwt = require("jsonwebtoken");
 // const bcrypt = require("bcryptjs");
-const serverConfig = require("./config/server.config");
-const db = require("./model/index");
+const serverConfig = require("./backEnd/config/server.config");
+const db = require("./backEnd/model/index");
 
 db.categories.hasMany(db.products);
 
@@ -96,6 +96,7 @@ const insertCategories = async () => {
       console.log(`Error ${err} while initializing user table`);
     });
 };
+
 const insertProducts = async () => {
   const products = [
     {
@@ -173,21 +174,14 @@ const insertRole = async () => {
       console.log(`Error ${err} while initializing role table`);
     });
 };
-console.log(1);
-require("./router/index")(App);
-console.log(2);
-require("./router/auth.router")(App);
-console.log(3);
-require("./router/users.router")(App);
-console.log(4);
-require("./router/adminRouter")(App);
-console.log(5);
-require("./router/product.router.js")(App);
-console.log(6);
-require("./router/category.router.js")(App);
-console.log(7);
-require("./router/cart.router.js")(App);
-console.log(8);
+
+require("./backEnd/router/index")(App);
+require("./backEnd/router/auth.router")(App);
+require("./backEnd/router/users.router")(App);
+require("./backEnd/router/adminRouter")(App);
+require("./backEnd/router/product.router.js")(App);
+require("./backEnd/router/category.router.js")(App);
+require("./backEnd/router/cart.router.js")(App);
 
 App.listen(serverConfig.PORT, () => {
   console.log(
