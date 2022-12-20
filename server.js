@@ -8,8 +8,6 @@ App.use(bodyparser.json());
 const serverConfig = require("./backEnd/config/server.config");
 const db = require("./backEnd/model/index");
 
-db.categories.hasMany(db.products);
-
 const init = () => {
   db.connection.sync({ force: true }).then(() => {
     console.log("tables dropped and recreated");
