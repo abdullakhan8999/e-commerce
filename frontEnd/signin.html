@@ -10,6 +10,54 @@
 </head>
 
 <body>
+   <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">manaSHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categories
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./categories/appliances.html">Appliances</a></li>
+                        <li><a class="dropdown-item" href="./categories/car_and_motorbike.html">Car and Motorbike
+                              Accessories</a></li>
+                        <li>
+                        <li><a class="dropdown-item" href="./categories/mobile_phone.html">Mobile Phone</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./categories/coming_soon.html">Something else here</a></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" href="./cart.html">Cart</a>
+                  </li>
+               </ul>
+               <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                  <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                     aria-label="Search">
+               </form>
+               <div class="text-end">
+                  <a href="./signin.html"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                  <a href="./signin.html"><button type="button" class="btn btn-warning">Sign-up</button></a>
+               </div>
+            </div>
+         </div>
+      </nav>
+   </header>
+
    <div class="modal modal-signin position-static d-block bg-secondary py-5" tabindex="-1" role="dialog"
       id="modalSignin">
       <div class="modal-dialog" role="document">
@@ -31,12 +79,12 @@
                      <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
                      <label for="floatingPassword">Password</label>
                   </div>
-                  <a href="./index.html"
-                     class="align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary align-items-center" type="submit">
-                        Sign up
-                     </button>
-                  </a>
+
+                  <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary align-items-center" type="submit">
+                     <a href="./index.html" class="text-light text-decoration-none ">Sign up</a>
+                  </button>
+
+
                   <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
                   <hr class="my-4">
                   <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
@@ -57,6 +105,59 @@
          </div>
       </div>
    </div>
+
+   <footer class="container-fluid text-light bg-dark py-5">
+      <div class="row">
+         <div class="col-12 col-md">
+            <a href="./index.html"
+               class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+               <span class="fs-4">manaSHOP</span>
+            </a>
+            <small class="d-block mb-3 text-muted">© 2017–2022</small>
+         </div>
+         <div class="col-6 col-md">
+            <h5>Categories</h5>
+            <ul class="list-unstyled text-small">
+               <li><a class="link-secondary text-decoration-none" href="./categories/appliances.html">Appliances</a>
+               </li>
+               <li><a class="link-secondary text-decoration-none" href="./categories/car_and_motorbike.html">Car and
+                     Motorbike</a></li>
+               <li><a class="link-secondary text-decoration-none"
+                     href="./categories/computers_and_accessories.html">Computers and Accessories</a></li>
+               <li><a class="link-secondary text-decoration-none" href="./categories/mobile_phone.html">Mobile Phone</a>
+               </li>
+            </ul>
+         </div>
+         <div class="col-6 col-md">
+            <h5>Connect with Us</h5>
+            <ul class="list-unstyled text-small">
+               <li><a class="link-secondary text-decoration-none" href="#">Facebook</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Twitter</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Instagram</a></li>
+            </ul>
+         </div>
+         <div class="col-6 col-md">
+            <h5>Make Money with Us</h5>
+            <ul class="list-unstyled text-small">
+               <li><a class="link-secondary text-decoration-none" href="#">Sell on manaSHOP</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Sell under manaSHOP Accelerator</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Protect and Build Your Brand</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Become an Affiliate</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Fulfillment by manaSHOP</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">manaSHOP Pay on Merchants</a></li>
+            </ul>
+         </div>
+         <div class="col-6 col-md">
+            <h5>Get to Know Us</h5>
+            <ul class="list-unstyled text-small">
+               <li><a class="link-secondary text-decoration-none" href="#">About Us</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Careers</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Press Releases</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">manaSHOP Science</a></li>
+            </ul>
+         </div>
+      </div>
+   </footer>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"></script>

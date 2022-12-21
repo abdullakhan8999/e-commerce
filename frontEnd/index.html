@@ -5,55 +5,61 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <base href="index.html">
-   <title>manaShop</title>
+   <title>manaSHOP</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
-
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-         <a class="navbar-brand" href="./index.html">manaShop</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="./cart.html">Cart</a>
-               </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                     aria-expanded="false">
-                     Categories
-                  </a>
-                  <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="./categories/appliances.html">Appliances</a></li>
-                     <li><a class="dropdown-item" href="./categories/car_and_motorbike.html">Car and Motorbike
-                           Accessories</a></li>
-                     <li>
-                        <hr class="dropdown-divider">
-                     </li>
-                     <li><a class="dropdown-item" href="./categories/coming_soon.html">Something else here</a></li>
-                  </ul>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link disabled">Disabled</a>
-               </li>
-            </ul>
-            <form class="d-flex" role="search">
-               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+   <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">manaSHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+               aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Categories
+                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./categories/appliances.html">Appliances</a></li>
+                        <li><a class="dropdown-item" href="./categories/car_and_motorbike.html">Car and Motorbike
+                              Accessories</a></li>
+                        <li>
+                        <li><a class="dropdown-item" href="./categories/mobile_phone.html">Mobile Phone</a></li>
+                        <li>
+                           <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="./categories/coming_soon.html">Something else here</a></li>
+                     </ul>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="./cart.html">Cart</a>
+                  </li>
+               </ul>
+               <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                  <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+                     aria-label="Search">
+               </form>
+               <div class="text-end">
+                  <a href="./signin.html"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                  <a href="./signin.html"><button type="button" class="btn btn-warning">Sign-up</button></a>
+               </div>
+            </div>
          </div>
-      </div>
-   </nav>
-  
+      </nav>
+   </header>
+
+
    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
          <button hrf type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
@@ -158,20 +164,21 @@
    </div>
 
    <div class="container-fluid">
-      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+      <div class="d-md-flex flex-md-equal justify-content-evenly w-100 my-md-3 ps-md-3">
          <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-4 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
-               <h3 class="display-3">Xiaomi Notebook Pro 120G</h3>
-               <p class="lead">Xiaomi Notebook Pro 120G- Intel 12th Gen i5-12450H Thin & Light (LPDDR5 RAM/512GB SSD/14
-                  inch(35.56cm) 2.5K Resolution & 120Hz Display/Win 11 & Office’21/FP Sensor/1.5Kg)</p>
+               <h6 class="fs-3">Dell 2in1 Inspiring 7420 Laptop</h6>
+               <p class="lead">Dell 2in1 Inspiron 7420 Laptop - Intel Core i3-1215U, 8GB, 256GB, Windows 11+MSO'21,
+                  14.0"/35.56Cms FHD+ WVA Touch 250
+                  nits Narrow Border, Backlit KB & FPR, Platinum Silver (D560780WIN9S, 1.57Kgs)</p>
             </div>
-            <img src="./images/laptop3.webp" class="bg-light shadow-sm mx-auto"
-               style=" height: 300px; border-radius: 21px 21px 0 0 ;">
+            <img src="./images/laptops1.webp" class="bg-light shadow-sm mx-auto"
+               style="height: 300px; border-radius: 21px 21px 0 0 ;">
             </img>
          </div>
          <div class="bg-light me-md-3 pt-3 px-3 pt-md-4 px-md-5 text-center overflow-hidden">
             <div class="my-3 p-3">
-               <h2 class="display-3">Apple MacBook Air M2</h2>
+               <h6 class="fs-3">Apple MacBook Air M2</h6>
                <p class="lead">2022 Apple MacBook Air Laptop with M2 chip: 34.46 cm (13.6-inch) Liquid Retina Display,
                   8GB RAM, 256GB SSD Storage,
                   Backlit Keyboard, 1080p FaceTime HD Camera. Works with iPhone/iPad; Midnight</p>
@@ -182,13 +189,13 @@
          </div>
          <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-4 px-md-5 text-center overflow-hidden">
             <div class="my-3 py-3">
-               <h2 class="display-3">Dell 2in1 Inspiring 7420 Laptop</h2>
+               <h6 class="fs-3">Dell 2in1 Inspiring 7420 Laptop</h6>
                <p class="lead">Dell 2in1 Inspiron 7420 Laptop - Intel Core i3-1215U, 8GB, 256GB, Windows 11+MSO'21,
                   14.0"/35.56Cms FHD+ WVA Touch 250
                   nits Narrow Border, Backlit KB & FPR, Platinum Silver (D560780WIN9S, 1.57Kgs)</p>
             </div>
             <img src="./images/laptops1.webp" class="bg-light shadow-sm mx-auto"
-               style=" height: 300px; border-radius: 21px 21px 0 0 ;">
+               style="height: 300px; border-radius: 21px 21px 0 0 ;">
             </img>
          </div>
       </div>
@@ -247,15 +254,13 @@
 
    </div>
 
-   <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
-      <div class="col-md-5 p-lg-5 mx-auto my-5">
-         <h1 class="display-4 fw-normal">Become a seller on manaShop today</h1>
-         <p class="lead fw-normal">Sell on manaShop.in and get a chance for long-term growth. Register now and get
+   <div class="container-fluid d-md-flex flex-md-equal justify-content-center  text-center text-light bg-dark">
+      <div class="col-md-5 p-sm-5 mx-auto my-5">
+         <h1 class="display-6 fw-normal">Become a seller on manaSHOP today</h1>
+         <p class="lead fw-normal">Sell on manaSHOP.in and get a chance for long-term growth. Register now and get
             1-Click support at no additional cost</p>
          <a class="btn btn-outline-secondary" href="./categories/coming_soon.html">Register now</a>
       </div>
-      <div class="product-device shadow-sm d-none d-md-block"></div>
-      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
    </div>
 
    <footer class="container-fluid text-light bg-dark py-5">
@@ -263,46 +268,49 @@
          <div class="col-12 col-md">
             <a href="./index.html"
                class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-               <span class="fs-4">manaShop</span>
+               <span class="fs-4">manaSHOP</span>
             </a>
             <small class="d-block mb-3 text-muted">© 2017–2022</small>
          </div>
          <div class="col-6 col-md">
-            <h5>Features</h5>
+            <h5>Categories</h5>
             <ul class="list-unstyled text-small">
-               <li><a class="link-secondary" href="#">Cool stuff</a></li>
-               <li><a class="link-secondary" href="#">Random feature</a></li>
-               <li><a class="link-secondary" href="#">Team feature</a></li>
-               <li><a class="link-secondary" href="#">Stuff for developers</a></li>
-               <li><a class="link-secondary" href="#">Another one</a></li>
-               <li><a class="link-secondary" href="#">Last time</a></li>
+               <li><a class="link-secondary text-decoration-none" href="./categories/appliances.html">Appliances</a>
+               </li>
+               <li><a class="link-secondary text-decoration-none" href="./categories/car_and_motorbike.html">Car and
+                     Motorbike</a></li>
+               <li><a class="link-secondary text-decoration-none"
+                     href="./categories/computers_and_accessories.html">Computers and Accessories</a></li>
+               <li><a class="link-secondary text-decoration-none" href="./categories/mobile_phone.html">Mobile Phone</a>
+               </li>
             </ul>
          </div>
          <div class="col-6 col-md">
-            <h5>Resources</h5>
+            <h5>Connect with Us</h5>
             <ul class="list-unstyled text-small">
-               <li><a class="link-secondary" href="#">Resource name</a></li>
-               <li><a class="link-secondary" href="#">Resource</a></li>
-               <li><a class="link-secondary" href="#">Another resource</a></li>
-               <li><a class="link-secondary" href="#">Final resource</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Facebook</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Twitter</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Instagram</a></li>
             </ul>
          </div>
          <div class="col-6 col-md">
-            <h5>Resources</h5>
+            <h5>Make Money with Us</h5>
             <ul class="list-unstyled text-small">
-               <li><a class="link-secondary" href="#">Business</a></li>
-               <li><a class="link-secondary" href="#">Education</a></li>
-               <li><a class="link-secondary" href="#">Government</a></li>
-               <li><a class="link-secondary" href="#">Gaming</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Sell on manaSHOP</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Sell under manaSHOP Accelerator</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Protect and Build Your Brand</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Become an Affiliate</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Fulfillment by manaSHOP</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">manaSHOP Pay on Merchants</a></li>
             </ul>
          </div>
          <div class="col-6 col-md">
-            <h5>About</h5>
+            <h5>Get to Know Us</h5>
             <ul class="list-unstyled text-small">
-               <li><a class="link-secondary" href="#">Team</a></li>
-               <li><a class="link-secondary" href="#">Locations</a></li>
-               <li><a class="link-secondary" href="#">Privacy</a></li>
-               <li><a class="link-secondary" href="#">Terms</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">About Us</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Careers</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">Press Releases</a></li>
+               <li><a class="link-secondary text-decoration-none" href="#">manaSHOP Science</a></li>
             </ul>
          </div>
       </div>
