@@ -26,5 +26,13 @@
   "directories": {
     "test": "test"
   },
-  "keywords": []
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdullakhan8999/e-commerce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abdullakhan8999/e-commerce/issues"
+  },
+  "homepage": "https://github.com/abdullakhan8999/e-commerce#readme"
 }
